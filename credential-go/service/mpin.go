@@ -10,7 +10,7 @@ import (
 	"time"
 )
 
-type MpinRequest struct {
+type CredentialRequest struct {
 	NoRek    string `json:"no_rek"`
 	BprID    string `json:"bpr_id"`
 	TrxCode  string `json:"trx_code"`
@@ -19,7 +19,7 @@ type MpinRequest struct {
 	RRN      string `json:"rrn"`
 }
 
-func CheckMpin(db *sql.DB, req MpinRequest) (map[string]interface{}, error) {
+func CheckCredential(db *sql.DB, req CredentialRequest) (map[string]interface{}, error) {
 
 
 	fmt.Println("REQUEST:", req)

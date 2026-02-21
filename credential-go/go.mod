@@ -1,4 +1,4 @@
-module mpin-go
+module credential-go
 
 go 1.22
 

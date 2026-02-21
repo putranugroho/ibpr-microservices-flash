@@ -7,13 +7,13 @@ COPY . .
 
 
 RUN go mod tidy
-RUN go build -o mpin-service ./cmd
+RUN go build -o credential-service ./cmd
 
 FROM alpine:latest
 
 WORKDIR /app
-COPY --from=builder /app/mpin-service .
+COPY --from=builder /app/credential-service .
 
 EXPOSE 8090
 
-CMD ["./mpin-service"]
+CMD ["./credential-service"]

@@ -1,15 +1,15 @@
 package handler
 
 import (
-	"mpin-go/database"
-	"mpin-go/service"
+	"credential-go/database"
+	"credential-go/service"
 	"encoding/json"
 	"net/http"
 )
 
-func MpinHandler(w http.ResponseWriter, r *http.Request) {
+func CredentialHandler(w http.ResponseWriter, r *http.Request) {
 
-	var req service.MpinRequest
+	var req service.CredentialRequest
 	err := json.NewDecoder(r.Body).Decode(&req)
 	if err != nil {
 		json.NewEncoder(w).Encode(map[string]interface{}{
@@ -21,7 +21,7 @@ func MpinHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	result, err := service.CheckMpin(database.DB, req)
+	result, err := service.CheckCredential(database.DB, req)
 	if err != nil {
 		json.NewEncoder(w).Encode(map[string]interface{}{
 			"code":    "099",
